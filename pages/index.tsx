@@ -1,6 +1,6 @@
 import type { GetStaticProps, NextPage } from "next";
 import Head from "next/head";
-import Image from "next/image";
+// import Image from "next/image";
 import Link from "next/link";
 import About from "../Components/About";
 import ContactMe from "../Components/ContactMe";
@@ -64,7 +64,7 @@ const Home = ({ skills, pageInfo, projects, socials, experiences }: Props) => {
 export default Home;
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-    const skills: Skill[] = [];
+    const skills: Skill[] = await fetchSkills();
     const pageInfo: PageInfo = await fetchPageInfo();
     const experiences: Experience[] = await fetchExperience();
 
